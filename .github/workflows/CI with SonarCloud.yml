@@ -20,6 +20,7 @@ jobs:
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v2.0.2
       with:
+          args: -Dsonar.login=5b2a5b63510a6a370761552d23998cdcf8d437d3
           entryPoint: sonar-scanner
     - name: Build the Docker Image
       run: docker build -t . --file Dockerfile --tag hello-world-war:latest  
