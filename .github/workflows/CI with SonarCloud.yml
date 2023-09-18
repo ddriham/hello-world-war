@@ -15,6 +15,8 @@ jobs:
     steps:
     - name: Check out
       uses: actions/checkout@v3
+    - name: build the Wrapper
+      run: mvn wrapper:wrapper
     - name: Analyze with SonarCloud
       run: ./mvnw -B verify sonar:sonar -Dsonar.projectKey=hello-world-war -Dsonar.organization=ddriham -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=5b2a5b63510a6a370761552d23998cdcf8d437d3
       env:
