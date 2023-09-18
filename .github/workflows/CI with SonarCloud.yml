@@ -15,8 +15,8 @@ jobs:
     steps:
     - name: Check out
       uses: actions/checkout@v3
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@v2.0.2
+    - name: Analyze with SonarCloud
+      run: ./mvnw -B verify sonar:sonar -Dsonar.projectKey=hello-world-war -Dsonar.organization=ddriham -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=5b2a5b63510a6a370761552d23998cdcf8d437d3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
