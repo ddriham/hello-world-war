@@ -22,9 +22,9 @@ jobs:
     #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     #     working-directory: /home/runner/work/hello-world-war/hello-world-war/
     - name: Build the Docker Image
-      run: docker build -t .   
+      run: docker build -t hello-world-war .   
     - name: Run & Test Container
-      run: docker run -itd --name node_hello -p 8080:8080  hello-world-war:latest
+      run: docker run -itd --name hello-world-war -p 8080:8080  hello-world-war:latest
     - run: sleep 5 && curl localhost:8080/hello-world-war-1.0.0
     - name: Retagging the Image 
       run: docker tag hello-world-war:latest ddriham/hello-world-war:latest
