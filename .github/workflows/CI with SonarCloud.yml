@@ -16,11 +16,12 @@ jobs:
     - name: Check out
       uses: actions/checkout@v3
     - name: Analyze with SonarCloud
-      uses: javiertuya/sonarqube-action@v1.1.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        # working-directory: /home/runner/work/hello-world-war/hello-world-war/
+      run: sonar-scanner
+      # uses: javiertuya/sonarqube-action@v1.1.1
+      # with:
+      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   working-directory: /home/runner/work/hello-world-war/hello-world-war/
     - name: Build the Docker Image
       run: docker build -t hello-world-war .   
     - name: Run & Test Container
