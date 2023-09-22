@@ -27,6 +27,7 @@ jobs:
     - name: Run & Test Container
       run: docker run -itd --name hello-world-war -p 8080:8080  hello-world-war:latest
     - run: sleep 5 && curl localhost:8080/hello-world-war-1.0.0
+    - run: docker stop hello-world-war && docker rm hello-world-war 
     - name: Retagging the Image 
       run: docker tag hello-world-war:latest ddriham/hello-world-war:latest
     - name: Login to Docker Hub
